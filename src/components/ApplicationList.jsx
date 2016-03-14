@@ -12,6 +12,7 @@ export default class ApplicationList extends React.Component {
             <th>ID</th>
             <th>Business Name</th>
             <th>Applicant</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@ ApplicationList.propTypes = {
   applications: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     businessName: React.PropTypes.string.isRequired,
-    applicantEmail: React.PropTypes.string.isRequired
+    applicantEmail: React.PropTypes.string.isRequired,
+    status: React.PropTypes.string.isRequired
   }).isRequired).isRequired
 }
