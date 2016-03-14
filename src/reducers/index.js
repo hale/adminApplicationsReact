@@ -8,5 +8,8 @@
  */
 import { combineReducers } from 'redux';
 /* Populated by react-webpack-redux:reducer */
-const reducers = {};
+const reducers = {
+  applicationStatusFilter: require('../reducers/applicationStatusFilter.js'),
+  applications: require('../reducers/applications.js')
+};
 module.exports = combineReducers(reducers);

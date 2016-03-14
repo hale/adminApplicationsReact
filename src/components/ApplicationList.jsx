@@ -1,29 +1,34 @@
 import React, { PropTypes } from 'react'
-import Application from './Application'
 import { Table } from 'react-bootstrap'
+
+import Application from './Application'
+import ApplicationStatusFilter from './ApplicationStatusFilter'
 
 export default class ApplicationList extends React.Component {
   render() {
-    const { applications } = this.props
+    const { applications, onStatusFilterChange } = this.props
     return (
-      <Table striped bordered condensed hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Business Name</th>
-            <th>Applicant</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {applications.map(application =>
-            <Application
-              key={application.id}
-              {...application}
-            />
-          )}
-        </tbody>
-      </Table>
+      <div>
+        <ApplicationStatusFilter onStatusFilterChange={onStatusFilterChange}/>
+        <Table striped bordered condensed hover>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Business Name</th>
+              <th>Applicant</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {applications.map(application =>
+              <Application
+                key={application.id}
+                {...application}
+              />
+            )}
+          </tbody>
+        </Table>
+      </div>
     )
   }
 }
@@ -34,5 +39,6 @@ ApplicationList.propTypes = {
     businessName: React.PropTypes.string.isRequired,
     applicantEmail: React.PropTypes.string.isRequired,
     status: React.PropTypes.string.isRequired
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+  onStatusFilterChange: PropTypes.func.isRequired
 }
