@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "adminApplicationsReact",
+    "style": "sass",
+    "postcss": true
+  }
+}
