@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Input } from 'react-bootstrap'
 
 export default class ApplicationStatusFilter extends React.Component {
   render() {
@@ -12,11 +13,16 @@ export default class ApplicationStatusFilter extends React.Component {
 
     return (
       <div>
-        <select onChange={(event) => onStatusFilterChange(event.target.value)}>
+        <Input
+          type='select'
+          label='Filter on Application Status'
+          onChange={(event) => onStatusFilterChange(event.target.value)}
+        >
+
         {options.map((option, index) =>
           <option key={index} value={option.value}>{option.display}</option>
         )}
-        </select>
+        </Input>
       </div>
     )
   }

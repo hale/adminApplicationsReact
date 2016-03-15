@@ -1,13 +1,17 @@
 import React, { PropTypes } from 'react'
+import { Input } from 'react-bootstrap'
 
 export default class ApplicationSearch extends React.Component {
   render() {
     const { searchQuery, onSearchQueryChange} = this.props
 
     return (
-      <input
+      <Input
+        type='text'
         value={searchQuery}
-        onChange={(event) => onSearchQueryChange(event.target.value)}
+        placeholder='Search all attributes'
+        label="Search"
+        onChange={(e) => onSearchQueryChange(e.target.value)}
       />
     )
   }

@@ -20,13 +20,13 @@ function createApplication(i) {
 
 const initialState = {
   applications: applications,
-  applicationStatusFilter: {
-    type: 'SET_APPLICATION_STATUS_FILTER',
-    filter: 'ALL'
-  }
+  applicationStatusFilter: 'ALL',
+  searchApplications: ''
 };
 
 module.exports = function() {
-  const store = redux.createStore(reducers, initialState)
+  const store = redux.createStore(reducers, initialState,
+    window.devToolsExtension ? window.devToolsExtension() : undefined
+  )
   return store
 }

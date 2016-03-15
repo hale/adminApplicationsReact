@@ -5,7 +5,11 @@ import ApplicationList from '../components/ApplicationList'
 import { setApplicationStatusFilter } from '../actions'
 import { searchApplicationsFilter } from '../actions'
 
-const getVisibleApplications = (applications, filter) => {
+const getVisibleApplications = (applications, filter, searchQuery) => {
+  return searchApplications(filterApplications(applications, filter), searchQuery);
+}
+
+const filterApplications = (applications, filter) => {
   switch (filter) {
     case 'ALL':
       return applications
@@ -20,22 +24,26 @@ const getVisibleApplications = (applications, filter) => {
   }
 }
 
-const doesMatch = (str) => {
-  return (key) => (key + '').toLowerCase().indexOf(str) !== 1
+const doesMatch = (searchQuery, str) => {
+  if (str == undefined) {
+    return false
+  } else {
+    return str.toLowerCase().includes(searchQuery)
+  }
 }
 
 const searchApplications = (applications, searchQuery) => {
-  if (searchQuery !== '')
-    return applications.filter((a) => Object.values(a).some(doesMatch(searchQuery)))
-  else
+  if (searchQuery === undefined) {
     return applications
+  } else {
+    return applications.filter((a) => Object.values(a).some(
+      str => doesMatch(searchQuery, String(str)))
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
-  let visible = getVisibleApplications(state.applications, state.applicationStatusFilter) || []
-  visible = searchApplications(visible, state.searchQuery)
-
-  return { applications: visible }
+  return { applications: getVisibleApplications(state.applications, state.applicationStatusFilter, state.searchApplications) }
 }
 
 const mapDispatchToProps = (dispatch) => {
