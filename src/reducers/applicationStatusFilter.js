@@ -3,7 +3,6 @@ module.exports = function(state = 'ALL', action) {
   //let nextState = Object.assign({}, state);
 
   switch(action.type) {
-
     case 'SET_APPLICATION_STATUS_FILTER':
       return action.filter
     default: {

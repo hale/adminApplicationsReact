@@ -4,3 +4,10 @@ export const setApplicationStatusFilter = (filter) => {
     filter
   }
 }
+
+export const searchApplicationsFilter = (searchQuery) => {
+  return {
+    type: 'SEARCH_APPLICATIONS',
+    searchQuery
+  }
+}

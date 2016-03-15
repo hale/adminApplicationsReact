@@ -3,13 +3,15 @@ import { Table } from 'react-bootstrap'
 
 import Application from './Application'
 import ApplicationStatusFilter from './ApplicationStatusFilter'
+import ApplicationSearch from './ApplicationSearch'
 
 export default class ApplicationList extends React.Component {
   render() {
-    const { applications, onStatusFilterChange } = this.props
+    const { applications, onStatusFilterChange, onSearchQueryChange } = this.props
     return (
       <div>
         <ApplicationStatusFilter onStatusFilterChange={onStatusFilterChange}/>
+        <ApplicationSearch onSearchQueryChange={onSearchQueryChange}/>
         <Table striped bordered condensed hover>
           <thead>
             <tr>
@@ -40,5 +42,6 @@ ApplicationList.propTypes = {
     applicantEmail: React.PropTypes.string.isRequired,
     status: React.PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onStatusFilterChange: PropTypes.func.isRequired
+  onStatusFilterChange: PropTypes.func.isRequired,
+  onSearchQueryChange: PropTypes.func.isRequired
 }

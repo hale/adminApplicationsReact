@@ -2,7 +2,7 @@ const redux = require('redux');
 const reducers = require('../reducers');
 
 let applications = [];
-for(let i = 0; i < 100; i++) {
+for(let i = 0; i < 500; i++) {
   applications[i] = createApplication(i)
 }
 function createApplication(i) {
