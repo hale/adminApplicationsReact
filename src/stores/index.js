@@ -5,7 +5,7 @@ const Chance = require('chance');
 var chance = new Chance();
 
 let applications = [];
-for(let i = 0; i < 500; i++) {
+for(let i = 0; i < 10000; i++) {
   applications[i] = createApplication(i)
 }
 function createApplication(i) {
