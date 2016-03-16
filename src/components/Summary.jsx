@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Panel, Grid, Row, Col } from 'react-bootstrap'
 
-export default class Results extends React.Component {
+export default class Summary extends React.Component {
   render() {
     const { applications, searchQuery } = this.props
 
@@ -15,7 +15,7 @@ export default class Results extends React.Component {
     }
 
     return (
-      <Panel header="Results" bsStyle={style}>
+      <Panel header="Summary" bsStyle={style}>
         <Grid>
           <Row className='show-grid'>
             <Col md={3}>
@@ -44,7 +44,7 @@ export default class Results extends React.Component {
   }
 }
 
-Results.PropTypes = {
+Summary.PropTypes = {
   applications: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     businessName: React.PropTypes.string.isRequired,

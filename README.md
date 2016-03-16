@@ -4,13 +4,10 @@
 
 ## TODO - technical
 
-* Add back hotloading (vanilla wepack HMR, no experimental tech!). cf. https://github.com/reactjs/redux/pull/1455
-* `state.applications` should change as filters and searches are applied, don't
-  do this in the Container!
-* SRP - extract more Containers for:
-  - Filter
-  - Search
-  - Results
+* Split state.applications into:
+  - in progress
+  - submitted
+  - completed
 * Use Facebook's Fixed Data Table
 * Immutable
 * Tests - use karma to unit test components, and/or integration tests

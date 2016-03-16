@@ -5,7 +5,6 @@ import { Grid } from 'react-bootstrap';
 
 import FilterContainer from '../containers/FilterContainer'
 import SearchContainer from '../containers/SearchContainer'
-import ResultsContainer from '../containers/ResultsContainer'
 import ApplicationsContainer from '../containers/ApplicationsContainer'
 
 class AppComponent extends React.Component {
@@ -16,8 +15,6 @@ class AppComponent extends React.Component {
 
         <FilterContainer />
         <SearchContainer />
-        <ResultsContainer />
-
         <ApplicationsContainer />
       </Grid>
     );
