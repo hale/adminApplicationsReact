@@ -2,13 +2,6 @@ import { connect } from 'react-redux'
 
 import ApplicationList from '../components/ApplicationList'
 
-import { setApplicationStatusFilter } from '../actions'
-import { searchApplicationsFilter } from '../actions'
-
-const getVisibleApplications = (applications, filter, searchQuery) => {
-  return searchApplications(filterApplications(applications, filter), searchQuery);
-}
-
 const filterApplications = (applications, filter) => {
   switch (filter) {
     case 'ALL':
@@ -42,27 +35,20 @@ const searchApplications = (applications, searchQuery) => {
   }
 }
 
+const getVisibleApplications = (applications, filter, searchQuery) => {
+  return searchApplications(filterApplications(applications, filter), searchQuery);
+}
+
 const mapStateToProps = (state) => {
   return {
-    applications: getVisibleApplications(state.applications, state.applicationStatusFilter, state.searchApplications),
-    searchQuery: state.searchApplications
+    applications: getVisibleApplications(state.applications,
+                                         state.applicationStatusFilter,
+                                         state.searchApplications)
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onStatusFilterChange: (filter) => {
-      dispatch(setApplicationStatusFilter(filter))
-    },
-    onSearchQueryChange: (searchQuery) => {
-      dispatch(searchApplicationsFilter(searchQuery))
-    }
-  }
-}
-
-const VisibleApplications = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const ApplicationsContainer = connect(
+  mapStateToProps
 )(ApplicationList)
 
-export default VisibleApplications
+export default ApplicationsContainer
