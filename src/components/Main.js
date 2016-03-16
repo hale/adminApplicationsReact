@@ -1,5 +1,3 @@
-require('bootstrap/less/bootstrap.less');
-
 import React from 'react';
 import { Grid } from 'react-bootstrap';
 

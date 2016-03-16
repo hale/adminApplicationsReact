@@ -4,14 +4,8 @@
 
 ## TODO - technical
 
-* Split state.applications into:
-  - in progress
-  - submitted
-  - completed
-* Use Facebook's Fixed Data Table
-* Immutable
-* Tests - use karma to unit test components, and/or integration tests
-* Constants / something for 'In-Progress' etc
+* Tests - add karma unit tests, look into integration tests
+* Constants for actions + application status strings
 
 ## TODO - features
 

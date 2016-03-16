@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Column, Cell } from 'fixed-data-table'
 
-import Application from './Application'
+import ApplicationCell from './ApplicationCell'
 import Summary from '../components/Summary'
 
 export default class ApplicationList extends React.Component {
@@ -10,24 +10,47 @@ export default class ApplicationList extends React.Component {
     return (
       <section className='applicationList'>
         <Summary applications={applications} searchQuery={searchQuery} />
-        <Table striped bordered condensed hover>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Business Name</th>
-              <th>Business Address</th>
-              <th>Applicant</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {applications.map(application =>
-              <Application
-                key={application.id}
-                {...application}
-              />
-            )}
-          </tbody>
+        <Table
+          rowHeight={50}
+          rowsCount={applications.length}
+          headerHeight={50}
+          width={1140}
+          maxHeight={1200}>
+          <Column
+            columnKey="id"
+            header={<Cell>ID</Cell>}
+            cell={<ApplicationCell data={applications} col="id" />}
+            fixed={true}
+            width={60}
+          />
+          <Column
+            columnKey="businessName"
+            header={<Cell>Business Name</Cell>}
+            cell={<ApplicationCell data={applications} col="businessName" />}
+            flexGrow={1}
+            width={200}
+          />
+          <Column
+            columnKey="businessAddress"
+            header={<Cell>Business Address</Cell>}
+            cell={<ApplicationCell data={applications} col="businessAddress" />}
+            flexGrow={2}
+            width={300}
+          />
+          <Column
+            columnKey="applicant"
+            header={<Cell>Applicant</Cell>}
+            cell={<ApplicationCell data={applications} col="applicantEmail" />}
+            flexGrow={1}
+            width={200}
+          />
+          <Column
+            columnKey="status"
+            header={<Cell>Status</Cell>}
+            cell={<ApplicationCell data={applications} col="status" />}
+            fixed={true}
+            width={150}
+          />
         </Table>
       </section>
     )
