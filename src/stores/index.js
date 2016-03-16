@@ -25,7 +25,7 @@ function createApplication(i) {
 
 const initialState = {
   applications: applications,
-  applicationStatusFilter: 'ALL',
+  statusFilter: 'ALL',
   searchApplications: ''
 };
 

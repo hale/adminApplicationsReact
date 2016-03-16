@@ -42,7 +42,7 @@ const getVisibleApplications = (applications, filter, searchQuery) => {
 const mapStateToProps = (state) => {
   return {
     applications: getVisibleApplications(state.applications,
-                                         state.applicationStatusFilter,
+                                         state.statusFilter,
                                          state.searchApplications)
   }
 }
