@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import ApplicationList from '../components/ApplicationList'
+import ApplicationTable from '../components/ApplicationTable'
 
 const filterApplications = (applications, filter) => {
   switch (filter) {
@@ -50,6 +50,6 @@ const mapStateToProps = (state) => {
 
 const ApplicationsContainer = connect(
   mapStateToProps
-)(ApplicationList)
+)(ApplicationTable)
 
 export default ApplicationsContainer

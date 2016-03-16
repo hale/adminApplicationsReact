@@ -4,7 +4,7 @@ import { Table, Column, Cell } from 'fixed-data-table'
 import ApplicationCell from './ApplicationCell'
 import Summary from '../components/Summary'
 
-export default class ApplicationList extends React.Component {
+export default class ApplicationTable extends React.Component {
   render() {
     const { applications, searchQuery } = this.props
     return (
@@ -57,7 +57,7 @@ export default class ApplicationList extends React.Component {
   }
 }
 
-ApplicationList.propTypes = {
+ApplicationTable.propTypes = {
   applications: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     businessName: React.PropTypes.string.isRequired,
