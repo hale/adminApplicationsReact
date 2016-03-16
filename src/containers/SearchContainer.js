@@ -6,7 +6,7 @@ import { searchApplicationsFilter } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
-    searchQuery: state.searchApplications
+    searchQuery: state.searchQuery
   }
 }
 

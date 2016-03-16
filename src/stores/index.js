@@ -26,7 +26,7 @@ function createApplication(i) {
 const initialState = {
   applications: applications,
   statusFilter: 'ALL',
-  searchApplications: ''
+  searchQuery: ''
 };
 
 module.exports = function() {
