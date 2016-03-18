@@ -9,18 +9,14 @@ for(let i = 0; i < 10000; i++) {
   applications[i] = createApplication(i)
 }
 function createApplication(i) {
-  let name = `${chance.word()} Inc.`
-  let email = chance.email();
-  let address = chance.address()
-  let status = 'In-Progress';
-  let rand = Math.random()
-  if (rand < 0.33) {
-    status = 'Submitted';
-  } else if (rand < 0.66) {
-    status = 'Completed';
+  return {
+    'id': i+1,
+    'businessName': `${chance.word()} Inc.`,
+    'businessAddress': chance.address(),
+    'applicantEmail': chance.email(),
+    'startedAt': chance.date(),
+    'status': chance.pickone(['In-Progress', 'Submitted', 'Completed'])
   }
-
-  return { 'id': i+1, 'businessName': name, 'businessAddress': address, 'applicantEmail': email, 'status': status }
 }
 
 const initialState = {

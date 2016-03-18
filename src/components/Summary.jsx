@@ -5,17 +5,19 @@ export default class Summary extends React.Component {
   render() {
     const { applications, searchQuery } = this.props
 
-    let style;
+    let style = 'default';
     if (applications.length < 1) {
       style = 'danger'
     } else if (String(searchQuery)) {
       style = 'success'
-    } else {
-      style = 'default'
     }
 
+    let inProgress = applications.filter(a => a.status == 'In-Progress')
+    let submitted = applications.filter(a => a.status == 'Submitted')
+    let completed = applications.filter(a => a.status == 'Completed')
+
     return (
-      <Panel header="Summary" bsStyle={style}>
+      <Panel header='Summary' bsStyle={style}>
         <Grid>
           <Row className='show-grid'>
             <Col md={3}>
@@ -25,17 +27,21 @@ export default class Summary extends React.Component {
 
             <Col md={3}>
               <strong>In-Progress</strong>
-              <p>{applications.filter(a => a.status == 'In-Progress').length}</p>
+              <p>{inProgress.length}</p>
             </Col>
 
             <Col md={3}>
               <strong>Submitted</strong>
-              <p>{applications.filter(a => a.status == 'Submitted').length}</p>
+              <p>{submitted.length}</p>
             </Col>
 
             <Col md={3}>
               <strong>Completed</strong>
-              <p>{applications.filter(a => a.status == 'Completed').length}</p>
+              <p>{completed.length}</p>
+            </Col>
+          </Row>
+          <Row className='show-grid'>
+            <Col md={12}>
             </Col>
           </Row>
         </Grid>
