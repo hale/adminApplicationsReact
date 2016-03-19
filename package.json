@@ -73,7 +73,6 @@
     "chance": "^1.0.1",
     "core-js": "^2.0.0",
     "fixed-data-table": "^0.6.0",
-    "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-bootstrap": "^0.28.3",
     "react-d3-wrap": "^2.0.0",
