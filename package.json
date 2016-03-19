@@ -76,6 +76,7 @@
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-bootstrap": "^0.28.3",
+    "react-d3-wrap": "^2.0.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1"

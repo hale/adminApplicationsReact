@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import { Table, Column, Cell } from 'fixed-data-table'
+import { Panel } from 'react-bootstrap'
 
 import ApplicationCell from './ApplicationCell'
 import Summary from '../components/Summary'
+import Histogram from '../components/Histogram'
 
 export default class ApplicationTable extends React.Component {
   render() {
@@ -10,6 +12,9 @@ export default class ApplicationTable extends React.Component {
     return (
       <section className='applicationList'>
         <Summary applications={applications} searchQuery={searchQuery} />
+        <Panel header='Histogram'>
+          <Histogram data={applications} width='1140' height='150'/>
+        </Panel>
         <Table
           rowHeight={50}
           rowsCount={applications.length}
