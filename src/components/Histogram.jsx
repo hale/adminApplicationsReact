@@ -12,7 +12,7 @@ const Histogram = d3Wrap({
     var formatCount = d3.format(',.0f');
 
     let margin = options.margin
-    let width = 1140 - margin.left - margin.right
+    let width = 1110 - margin.left - margin.right
     let height = 150 - margin.top - margin.bottom
 
     var x = d3.scale.linear()

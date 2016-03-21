@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from 'react-bootstrap';
 
 import FilterContainer from '../containers/FilterContainer'
-import SearchContainer from '../containers/SearchContainer'
+import SummaryContainer from '../containers/SummaryContainer'
 import ApplicationsContainer from '../containers/ApplicationsContainer'
 
 class AppComponent extends React.Component {
@@ -12,7 +12,8 @@ class AppComponent extends React.Component {
         <h1> Applications </h1>
 
         <FilterContainer />
-        <SearchContainer />
+        <SummaryContainer />
+
         <ApplicationsContainer />
       </Grid>
     );

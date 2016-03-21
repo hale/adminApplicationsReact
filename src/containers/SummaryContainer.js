@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
 
-import ApplicationTable from '../components/ApplicationTable'
+import Summary from '../components/Summary'
 import { getVisibleApplications } from '../selectors/getVisibleApplications'
 
 const mapStateToProps = (state) => {
   return {
+    searchQuery: state.searchQuery,
     applications: getVisibleApplications(state)
   }
 }
 
-const ApplicationsContainer = connect(
+const SummaryContainer = connect(
   mapStateToProps
-)(ApplicationTable)
+)(Summary)
 
-export default ApplicationsContainer
+export default SummaryContainer

@@ -1,63 +1,54 @@
 import React, { PropTypes } from 'react'
 import { Table, Column, Cell } from 'fixed-data-table'
-import { Panel } from 'react-bootstrap'
 
 import ApplicationCell from './ApplicationCell'
-import Summary from '../components/Summary'
-import Histogram from '../components/Histogram'
 
 export default class ApplicationTable extends React.Component {
   render() {
-    const { applications, searchQuery } = this.props
+    const { applications } = this.props
     return (
-      <section className='applicationList'>
-        <Summary applications={applications} searchQuery={searchQuery} />
-        <Panel header='Histogram'>
-          <Histogram data={applications} width='1140' height='150'/>
-        </Panel>
-        <Table
-          rowHeight={50}
-          rowsCount={applications.length}
-          headerHeight={50}
-          width={1140}
-          maxHeight={1200}>
-          <Column
-            columnKey="id"
-            header={<Cell>ID</Cell>}
-            cell={<ApplicationCell data={applications} col="id" />}
-            fixed={true}
-            width={60}
-          />
-          <Column
-            columnKey="businessName"
-            header={<Cell>Business Name</Cell>}
-            cell={<ApplicationCell data={applications} col="businessName" />}
-            flexGrow={1}
-            width={200}
-          />
-          <Column
-            columnKey="businessAddress"
-            header={<Cell>Business Address</Cell>}
-            cell={<ApplicationCell data={applications} col="businessAddress" />}
-            flexGrow={2}
-            width={300}
-          />
-          <Column
-            columnKey="applicant"
-            header={<Cell>Applicant</Cell>}
-            cell={<ApplicationCell data={applications} col="applicantEmail" />}
-            flexGrow={1}
-            width={200}
-          />
-          <Column
-            columnKey="status"
-            header={<Cell>Status</Cell>}
-            cell={<ApplicationCell data={applications} col="status" />}
-            fixed={true}
-            width={150}
-          />
-        </Table>
-      </section>
+      <Table
+        rowHeight={50}
+        rowsCount={applications.length}
+        headerHeight={50}
+        width={1140}
+        maxHeight={1200}>
+        <Column
+          columnKey="id"
+          header={<Cell>ID</Cell>}
+          cell={<ApplicationCell data={applications} col="id" />}
+          fixed={true}
+          width={60}
+        />
+        <Column
+          columnKey="businessName"
+          header={<Cell>Business Name</Cell>}
+          cell={<ApplicationCell data={applications} col="businessName" />}
+          flexGrow={1}
+          width={200}
+        />
+        <Column
+          columnKey="businessAddress"
+          header={<Cell>Business Address</Cell>}
+          cell={<ApplicationCell data={applications} col="businessAddress" />}
+          flexGrow={2}
+          width={300}
+        />
+        <Column
+          columnKey="applicant"
+          header={<Cell>Applicant</Cell>}
+          cell={<ApplicationCell data={applications} col="applicantEmail" />}
+          flexGrow={1}
+          width={200}
+        />
+        <Column
+          columnKey="status"
+          header={<Cell>Status</Cell>}
+          cell={<ApplicationCell data={applications} col="status" />}
+          fixed={true}
+          width={150}
+        />
+      </Table>
     )
   }
 }
@@ -69,6 +60,5 @@ ApplicationTable.propTypes = {
     businessAddress: React.PropTypes.string.isRequired,
     applicantEmail: React.PropTypes.string.isRequired,
     status: React.PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  searchQuery: PropTypes.string.isRequired
+  }).isRequired).isRequired
 }

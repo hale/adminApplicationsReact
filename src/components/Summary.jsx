@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Panel, Grid, Row, Col } from 'react-bootstrap'
 
+import Histogram from '../components/Histogram'
+
 export default class Summary extends React.Component {
   render() {
     const { applications, searchQuery } = this.props
@@ -16,36 +18,43 @@ export default class Summary extends React.Component {
     let submitted = applications.filter(a => a.status == 'Submitted')
     let completed = applications.filter(a => a.status == 'Completed')
 
+    const gridStyle = {
+      textAlign: 'center'
+    }
+
+    const rowStyle = {
+      width: '1090'
+    }
+
     return (
-      <Panel header='Summary' bsStyle={style}>
-        <Grid>
-          <Row className='show-grid'>
-            <Col md={3}>
-              <strong>Total</strong>
-              <p>{applications.length}</p>
-            </Col>
+      <div>
+        <Panel header='Summary' bsStyle={style}>
+          <Histogram data={applications} width='1110' height='180'/>
+          <Grid style={gridStyle}>
+            <Row className='show-grid' style={rowStyle}>
+              <Col md={3}>
+                <strong>Total</strong>
+                <p>{applications.length}</p>
+              </Col>
 
-            <Col md={3}>
-              <strong>In-Progress</strong>
-              <p>{inProgress.length}</p>
-            </Col>
+              <Col md={3}>
+                <strong>In-Progress</strong>
+                <p>{inProgress.length}</p>
+              </Col>
 
-            <Col md={3}>
-              <strong>Submitted</strong>
-              <p>{submitted.length}</p>
-            </Col>
+              <Col md={3}>
+                <strong>Submitted</strong>
+                <p>{submitted.length}</p>
+              </Col>
 
-            <Col md={3}>
-              <strong>Completed</strong>
-              <p>{completed.length}</p>
-            </Col>
-          </Row>
-          <Row className='show-grid'>
-            <Col md={12}>
-            </Col>
-          </Row>
-        </Grid>
-      </Panel>
+              <Col md={3}>
+                <strong>Completed</strong>
+                <p>{completed.length}</p>
+              </Col>
+            </Row>
+          </Grid>
+        </Panel>
+      </div>
     )
   }
 }
