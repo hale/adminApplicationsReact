@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Panel, Grid, Row, Col } from 'react-bootstrap'
 
-import Histogram from '../components/Histogram'
+import BarChart from '../components/BarChart'
 
 export default class Summary extends React.Component {
   render() {
@@ -29,7 +29,7 @@ export default class Summary extends React.Component {
     return (
       <div>
         <Panel header='Summary' bsStyle={style}>
-          <Histogram data={applications} width='1110' height='180'/>
+          <BarChart applications={applications}/>
           <Grid style={gridStyle}>
             <Row className='show-grid' style={rowStyle}>
               <Col md={3}>
